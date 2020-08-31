@@ -1,21 +1,21 @@
-function toMatch(str1, str2) {
-  let counter1 = {};
-  let counter2 = {};
+function toMatch(guessed, secret) {
+  let guessedObj = {};
+  let secretObj = {};
   let matchCount = 0;
 
-  for (let i = 0; i < str1.length; i++) {
-    let char = str1[i];
-    counter1[char] = 1;
+  for (let i = 0; i < guessed.length; i++) {
+    let char = guessed[i];
+    guessedObj[char] = 1;
   }
 
-  for (let i = 0; i < str2.length; i++) {
-    let char = str2[i];
-    counter2[char] = 1;
+  for (let i = 0; i < secret.length; i++) {
+    let char = secret[i];
+    secretObj[char] = 1;
   }
 
-  for (let key in counter1) {
-    if (counter1[key] === counter2[key]) {
-      matchCount += counter1[key];
+  for (let key in guessedObj) {
+    if (guessedObj[key] === secretObj[key]) {
+      matchCount += guessedObj[key];
     }
   }
 
